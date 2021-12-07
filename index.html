@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="style.css">
+    
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>MyGov</title>
+</head>
+
+	<body>
+		<div id='background'>
+			<img src='assets/images/aus.png' draggable="false" style='filter: invert(100%) brightness(102%);'>
+		</div>
+		<div id='container'>
+			<img draggable="false" style='margin: 25px auto; display: block; width: 20%;' src="https://www.dfat.gov.au/sites/default/files/australian-government-stacked-black_168791ec-96ad-3bcc-817b-27e71beb4522.png">
+			
+			<!-- <img id='background' style='filter: invert(58%) sepia(0%) saturate(0%) hue-rotate(53deg) brightness(92%) contrast(91%); width: 50%; position:absolute; left:50%; top:50%; transform: translate(-50%,-50%);' src="assets/images/aus.png"> -->
+			
+			<div style='width: 100%; display: grid; place-items: center; margin: 0 auto;'>
+				<div style='font-size: 3.5vw; width: 85vw; text-align: center; font-weight: 700; color: white; display:flex; align-items: center; padding: 1vw 0; justify-content: center;  margin-top: 5px; background: #197c45;'>
+					<a style='color:white;  transform: scaleY(1.05); margin-left: 10vw;' >COVID-19 digital certificate</a>
+					<img draggable="false" style='width: 12vw; position: relative; right: -6vw;' src="assets/images/checkmark.png">
+					
+				</div>
+				
+			</div>
+
+			<a style='font-size: 2vw; text-align: center; font-weight: 500; color: rgb(0, 0, 0); display:block; padding: 6px 0; margin-bottom: 7px; margin-top: 25px;'>This individual has received all required COVID-19 vaccinations.</a>
+			
+			<div id='main-info' style='display: table; width: 75vw; margin: 3vw 15vw; font-size: 1.5vw;'>
+
+				<div style='display: table-row'>
+					<div >
+						<a class='subtitle' id='title_name' style='font-weight: 700;' >Name</a>
+						<a class='subtitle' id='title_dob' style='font-weight: 700; float: right;'>Date of birth</a>
+					</div>
+				</div>
+
+				
+				<div style='display: table-row'>
+					<div class='info-title' >
+						<a style='font-weight: 700;' id='fullname' contenteditable='true' autocorrect='false' autocapitalize='false' spellcheck="false">FIRST M LAST</a>
+						<a style='font-weight: 500; float: right;' id='dob' contenteditable='true' autocorrect='false' autocapitalize='false' spellcheck="false">DayNum MonthAbbrev Year</a>
+					</div>
+				</div>
+
+				<div style='display: table-row'>
+					<div >
+						<a class='subtitle' style='font-weight: 700;'>Individual Healthcare Identifier (IHI)</a>
+						<a class='subtitle' style='font-weight: 700;  float: right;'>Document number</a>
+					</div>
+				</div>
+
+				<div style='display: table-row'>
+					<div class='info-title'  >
+						<a style='font-weight: 500;' contenteditable='true' autocorrect='false' id='individual_healthcare' autocapitalize='false' spellcheck="false">16 RANDOM DIGITS</a>
+						<a style='font-weight: 500; float: right;' contenteditable='true' id='document_number'autocorrect='false' autocapitalize='false' spellcheck="false">12 RANDOM DIGITS</a>
+					</div>
+				</div>
+
+
+
+				<div style='display: table-row'>
+					<div >
+						<a  class='subtitle' style='font-weight: 700; color: #197c45;'>Valid from</a>
+					</div>
+				</div>
+
+				<div style='display: table-row'>
+					<div class='info-title'>
+						<a id='valid_from' style='font-weight: 500;' contenteditable='true' autocorrect='false' autocapitalize='false' spellcheck="false">DayNum MonthAbbrev Year</a>
+					</div>
+				</div>
+				
+				<div style='display: table-row;'>
+					<div >
+						<a class='subtitle' style='font-weight: 700; font-size: 1.9vw; '>Vaccinations</a>
+						<a class='subtitle' style='font-weight: 700;  float: right; font-size: 1.9vw; '>Dates received</a>
+					</div>
+				</div>
+				<hr style='margin-top: 10px; margin-bottom: 0;'>
+				<div style='display: table-row'>
+					<div class='info-title' >
+						<a style='font-weight: 500;' id='vaccine-type' contenteditable='true' autocorrect='false' autocapitalize='false' spellcheck="false">Pfizer Comirnaty</a>
+						<a style='font-weight: 500; float: right;' id='date-received' contenteditable='true' autocorrect='false' autocapitalize='false' spellcheck="false">DayNum MonthAbbrev Year</a>
+					</div>
+				</div>
+
+				
+				
+				
+
+			</div>
+
+			<div id='disclaimer' style='width: 82vw; position: absolute; left: 50%; transform: translateX(-50%);'>
+				<p style="font-weight: 700; margin: 0; color: #444444;">Disclaimer</p>
+				<p style='margin-top: 0;'>
+				This certificate shows your COVID-19 vaccination details as reported to the Australian Immunisation Register by 
+				your vaccination provider. It is available because you have received all required COVID-19 vaccinations or you 
+				have a medical contraindication to COVID-19 vaccines.
+				</p>
+
+				<p>
+				Every effort is made to ensure that the information contained on the Australian Immunisation Register is correct. 
+				The data is based on information provided by vaccination providers and the accuracy of data is dependent on the 
+				quality and timeliness of information provided.
+				</p>
+	
+				<p>
+				If any of the vaccination details shown on the certificate are not correct, please ask your vaccination provider to 
+				provide the correct details. They can call us on 1800 653 809 (call charges may apply).
+				</p>
+
+				<p>
+				If you have any questions about this certificate please call the Australian Immunisation Register on 1800 653 809 
+				(call charges may apply).
+				</p>
+
+				<div style="display:flex;">
+					<button id='reset-id' onclick="regenerateId()">Reset ID</button>
+				</div>
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+	</body>
+</html>
+<script src='js.js'></script>
